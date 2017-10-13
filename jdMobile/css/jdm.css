@@ -169,11 +169,13 @@ main .jdm-nav {
 
 .jdm-toolbar ul {
     display: flex;
-    flex: row
+    float: left;
+    height: 100%;
 }
 
 .jdm-toolbar li {
     flex: 1;
+    height: 100%;
 }
 
 .jdm-toolbar li a {
