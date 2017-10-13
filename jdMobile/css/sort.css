@@ -1,0 +1,196 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #fff
+}
+
+.jd-sort {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+
+/* 头部搜索区 */
+
+header {
+    position: fixed;
+    top: 0;
+    padding: 0;
+    width: 100%;
+    height: 45px;
+    background-image: url(../images/header-bg.png);
+    background-size: 1px 44px;
+    background-repeat: repeat-x;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+header .back-icon {
+    /* 触点图标需占满父元素
+        但这样背景图就会显示多余的精灵图
+        处理方式：
+        用background-origin:content-box和background-clip:content-box
+    */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 44px;
+    padding: 10px 11px;
+    box-sizing: border-box;
+    background-image: url(../images/jd-sprites.png);
+    background-size: 200px 200px;
+    background-position: -20px 2px;
+    background-origin: content-box;
+    /*从内容处开始显示图片*/
+    background-clip: content-box;
+    /*从内容处开始裁剪图片*/
+}
+
+header .search-box {
+    width: 100%;
+    height: 44px;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+header .search-box input {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    border-radius: 5px;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+header .menu-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 44px;
+    padding: 10px 11px;
+    box-sizing: border-box;
+    background-image: url(../images/jd-sprites.png);
+    background-size: 200px 200px;
+    background-position: -60px 2px;
+    background-origin: content-box;
+    /*从内容处开始显示图片*/
+    background-clip: content-box;
+    /*从内容处开始裁剪图片*/
+}
+
+
+/* 主体 */
+
+
+/* 左边为固定，右边自适应，
+所以需用flex布局（flex:1指填充剩余空间）
+ */
+
+main {
+    position: fixed;
+    padding-top: 45px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+}
+
+
+/* 左边导航区 */
+
+main aside {
+    width: 90px;
+    height: 100%;
+    overflow: hidden;
+    /*用于移动端模拟滚动条*/
+}
+
+main aside li {
+    width: 100%;
+    height: 50px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 50px;
+    font-size: 13px;
+    background-color: #f7f7f7;
+}
+
+main aside li.active {
+    border-right: none;
+    background-color: #fff;
+    color: #c91523;
+}
+
+
+/* 右边内容区 */
+
+main article {
+    flex: 1;
+    /*剩余main会自动适应补齐*/
+    height: 100%;
+    width: 100%;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+
+
+/* 热门推介 */
+
+main article .hot-tuijian h2,
+.hot-sale h2 {
+    font-size: 13px;
+    color: #666;
+}
+
+main article .hot-tuijian ul {
+    margin-top: 15px;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.hot-tuijian ul li {
+    float: left;
+    width: calc(100%/3);
+    height: 50px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 50px;
+    font-size: 13px;
+}
+
+
+/* 热门导购 */
+
+.hot-sale {
+    margin: 15px 0;
+}
+
+.hot-sale ul li {
+    float: left;
+    width: calc(100%/3);
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+
+.hot-sale ul a {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.hot-sale ul span {
+    display: block;
+    margin: 8px 0;
+}

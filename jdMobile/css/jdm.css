@@ -2,8 +2,6 @@ html,
 body,
 .jdm {
     width: 100%;
-    height: 100%;
-    overflow: hidden;
     position: relative;
     background-color: #f7f7f7
 }
@@ -100,6 +98,7 @@ header .jdm-login {
 
 .jdm main {
     width: 100%;
+    padding-bottom: 100px;
 }
 
 main .jdm-carousel {
@@ -152,6 +151,392 @@ main .jdm-nav {
 
 .jdm-carousel img {
     width: 100%;
+}
+
+
+/* 秒杀区 */
+
+.jdm .jdm-seckill {
+    padding: 0 10px;
+    margin-top: 6px;
+    background-color: #fff
+}
+
+.jdm-seckill .title {
+    line-height: 1;
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.jdm-seckill .title h4 {
+    padding-left: 22px;
+    margin-right: 5px;
+    font-size: 15px;
+    font-weight: normal;
+    color: #CA1327;
+    float: left;
+    position: relative;
+}
+
+
+/* 伪元素相对于其前面元素本身定位 */
+
+.jdm-seckill .title h4::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 0;
+    width: 20px;
+    height: 26px;
+    background-image: url(../images/jd-sprites.png);
+    background-size: 200px 200px;
+    background-position: -84px -107px;
+}
+
+.jdm-seckill .title .time {
+    float: left;
+}
+
+.jdm-seckill .time span {
+    display: block;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: -1px;
+    color: #fff;
+    font-size: 13px;
+    background-color: #3d3d3d;
+    float: left;
+}
+
+.jdm-seckill .time span:nth-child(3n) {
+    line-height: 12px;
+    margin: 0 3px;
+    background-color: transparent;
+    color: #000;
+}
+
+.jdm-seckill .time span:nth-child(3n+1) {
+    padding-left: 2px;
+    border-radius: 2px 0 0 2px;
+}
+
+.jdm-seckill .time span:nth-child(3n+2) {
+    padding-right: 2px;
+    border-radius: 0 2px 2px 0;
+}
+
+.jdm-seckill .title .more {
+    float: right;
+    position: relative;
+    line-height: 15px;
+    padding-right: 10px;
+    font-size: 12px;
+    color: #666
+}
+
+.jdm-seckill .title .more::before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    right: 0;
+    width: 7px;
+    height: 12px;
+    background-image: url(../images/jd-sprites.png);
+    background-size: 200px 200px;
+    background-position: -186px -51px;
+}
+
+.jdm-seckill .goods {
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.jdm-seckill .goods ul {
+    overflow: hidden;
+    display: flex;
+}
+
+.jdm-seckill .goods li {
+    flex: 1;
+    padding: 0 10px;
+    box-sizing: border-box
+}
+
+.jdm-seckill .goods li a {
+    display: block;
+    position: relative;
+}
+
+.jdm-seckill .goods li b {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: normal;
+    border-radius: 50%;
+    background-color: #fdb60a;
+}
+
+.jdm-seckill .goods .price {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.jdm-seckill .price span {
+    display: block;
+    margin-top: 8px;
+    color: #ed5657;
+}
+
+.jdm-seckill .price span:last-child {
+    margin-top: 4px;
+    color: #888;
+    text-decoration: line-through;
+    font-size: 10px;
+}
+
+
+/* 会场区 */
+
+.jdm .jdm-banner {
+    position: relative;
+}
+
+.jdm-banner ul {
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+    width: 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.jdm-banner li {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.jdm-banner li a {
+    flex: 1;
+}
+
+
+/* 热卖区 */
+
+.jdm .jdm-hotsale ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.jdm .jdm-hotsale li {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.jdm .jdm-hotsale li a {
+    flex: 1;
+}
+
+
+/* 广告区 */
+
+.jdm .jdm-advert {
+    padding: 8px;
+}
+
+
+/* 超市 */
+
+.jdm .jdm-market {
+    background-color: #fff;
+}
+
+.jdm-market h4 {
+    height: 34px;
+    line-height: 34px;
+    padding: 0 8px;
+    color: #f25353;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.jdm-market ul {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.jdm-market li {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.jdm-market li a {
+    flex: 1
+}
+
+
+/* 主题街 */
+
+.jdm .jdm-theme {
+    background-color: #fff;
+}
+
+.jdm-theme h4 {
+    height: 34px;
+    line-height: 34px;
+    padding: 0 8px;
+    font-size: 16px;
+    color: #f25353;
+    font-weight: normal;
+}
+
+.jdm-theme ul {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.jdm-theme li {
+    display: flex;
+}
+
+.jdm-theme li a {
+    flex: 1;
+}
+
+.jdm-theme li.half .left,
+.jdm-theme li.half .right {
+    width: 50%;
+}
+
+.jdm-theme li.half .right a {
+    float: left;
+    display: block;
+    width: 50%;
+}
+
+.jdm-theme li.half .right a:nth-child(1) {
+    display: block;
+    width: 100%;
+}
+
+
+/* 品牌 */
+
+.jdm .jdm-brand {
+    width: 100%;
+    background-color: #fff
+}
+
+.jdm-brand ul {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+}
+
+
+/* 猜你喜欢 */
+
+.jdm .jdm-guess {
+    width: 100%;
+    background-color: #fff;
+}
+
+.jdm-guess .guess-top {
+    height: 34px;
+    width: 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+.guess-top h2 {
+    float: left;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 34px;
+}
+
+.guess-top .guess-login {
+    float: right;
+    line-height: 34px;
+    color: #c91523;
+    position: relative;
+    margin-right: 10px;
+}
+
+.guess-top .guess-login:before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: -24px;
+    width: 18px;
+    height: 18px;
+    background-image: url(../images/icon-login.png);
+    background-size: 18px 18px;
+}
+
+.jdm-guess .guess-bottom {
+    width: 100%;
+    overflow: hidden;
+}
+
+.guess-bottom .item {
+    float: left;
+    width: 50%;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+.guess-bottom .item>a {
+    display: block;
+    width: 100%;
+}
+
+.guess-bottom .item>p {
+    width: 100%;
+    font-size: 13px;
+    line-height: 20px;
+    height: 40px;
+    margin-top: 8px;
+    /* 多行省略 */
+    display: -webkit-box;
+    /*类似于display:flex*/
+    -webkit-box-orient: vertical;
+    /*类似于flex-direction*/
+    -webkit-line-clamp: 2;
+    /*两行显示*/
+    overflow: hidden
+}
+
+.jdm-guess .item .price span {
+    color: #c91523;
+    font-size: 13px;
+    line-height: 22px;
+}
+
+.jdm-guess .item .price {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    margin-top: 6px;
+    padding-top: 8px;
+}
+
+.jdm-guess .item .see-like {
+    float: right;
+    color: #ccc;
+    border: 1px solid #ccc;
+    padding: 2px;
+    border-radius: 3px;
 }
 
 
