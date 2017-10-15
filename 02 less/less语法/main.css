@@ -1,0 +1,10 @@
+/*多行注释 会编译到css文件中，用户可见*/
+aside,
+main {
+  font-size: 24px;
+  margin: 20px 30px 40px 50px;
+}
+main {
+  color: #ccc;
+  background-color: #fff;
+}

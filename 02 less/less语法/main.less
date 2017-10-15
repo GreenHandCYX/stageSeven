@@ -1,0 +1,172 @@
+//@import url("./setting.less");
+@import './setting.less';
+//1.注释:
+    //注释 这是单行注释（静默注释），是给开发者看的，不会编译到css文件中
+    /*多行注释 会编译到css文件中，用户可见*/
+
+
+//2.变量:
+//格式:@变量名:value
+// @primaryColor:pink;
+// @subColor:hotpink;
+// @fontSize:14px;
+
+// header{
+//     background-color: @primaryColor;
+//     color:@subColor
+// }
+// footer{
+//     background-color:@subColor;
+//     color: @primaryColor
+// }
+
+// //3.嵌套规则:嵌套尽量不要超过三层
+// .container{
+//     h1{
+//         font-size: 25px;
+//         color: @primaryColor
+//     }
+//     p{
+//         font-size: 25px;
+//         color: #4c7949
+//     }
+//     .myclass{
+//         h1{
+//             font-size: 25px;
+//             color: @primaryColor
+//         }
+//         p{
+//             font-size: 25px;
+//             color: #4c7949
+//         }
+//     }
+// }
+
+
+// //4.父选择器
+// a{
+//     color: yellowgreen;
+//     &:link{
+//         color: black
+//     }
+//     &:visited{
+//         color: blue
+//     }
+//     &:hover{
+//         color: orange
+//     }
+//     &:active{
+//         color: pink
+//     }
+
+//     >b{
+//         background-color: gray
+//     }
+
+// }
+
+
+
+//5.四则运算
+// .box{
+//     font-size: @fontSize + 2;
+//     margin-top: @fontSize-6;
+//     padding-bottom: @fontSize*2;
+//     width: @fontSize/2
+// }
+
+
+//6.混合器 类似于函数
+//格式:.混合器名(参数){}
+
+//a.无参混合器
+// .change(){
+//     color: yellowgreen;
+//     &:link{
+//         color: black
+//     }
+//     &:visited{
+//         color: blue
+//     }
+//     &:hover{
+//         color: orange
+//     }
+//     &:active{
+//         color: pink
+//     }
+
+//     >b{
+//         background-color: gray
+//     }
+// }
+// .box{
+//     .change();
+//     }
+
+
+ //b.带参混合器（必须传参）
+//  .change(@normal,@link,@visited,@hover,@active){
+//     color: @normal;
+//     &:link{
+//         color: @link
+//     }
+//     &:visited{
+//         color: @visited
+//     }
+//     &:hover{
+//         color: @hover
+//     }
+//     &:active{
+//         color: @active
+//     }
+
+//     >b{
+//         background-color: gray
+//     }
+// }
+// .box{
+//     .change(red,yellow,gray,black,blue);
+// }
+//c.有参混合器可设置默认值
+//  .change(@normal:red,@link:yellow,@visited:pink,@hover:purple,@active:blue){
+//     color: @normal;
+//     &:link{
+//         color: @link
+//     }
+//     &:visited{
+//         color: @visited
+//     }
+//     &:hover{
+//         color: @hover
+//     }
+//     &:active{
+//         color: @active
+//     }
+
+//     >b{
+//         background-color: gray
+//     }
+// }
+
+
+
+
+
+//7.继承(少用)
+//格式"&:extend(选择器)
+//当一个元素最多有一两句代码不一样再去继承
+aside{
+    font-size: 24px;
+    margin: 20px 30px 40px 50px;
+}
+main{
+    color:#ccc;
+    background-color: #fff;
+    &:extend(aside);
+}
+
+
+
+
+//8.导入文件
+//格式:@import "src" @import url()//通常在开头

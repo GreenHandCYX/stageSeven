@@ -1,0 +1,75 @@
+@import './setting.less';
+@import './reset.less';
+@import './normalize.less';
+
+// 头部
+header{
+    width: 100%;
+    height:(88rem / @per);//less中若作除运算须将单位置前
+    line-height: (88rem / @per);
+    background-color: @headerBgColor;
+    
+    .left{
+        float: left;
+        font-size: (32rem / @per);
+        padding-left: (56rem / @per);
+        color:@white;
+        display: inline-block;
+        position: relative;
+        &::before{
+            content: '';
+            width: (20rem / @per);
+            height:(32rem / @per);
+            top: (28rem/@per);
+            left: (20rem/@per);
+            position: absolute;
+            background-image: url(../image/back.png);
+            background-repeat: no-repeat;
+            background-size: (20rem / @per) (32rem / @per);
+        }
+       
+    }
+    .right{
+        float: right;
+        padding-right: (26rem/@per);
+        font-size: (30rem/@per);
+        color:@white;
+    }
+}
+
+
+// 内容
+main{
+    width: 100%;
+    margin-top:(32rem/@per);
+    li{
+        width: 100%;
+        height: (106rem/@per);
+        line-height: (106rem/@per);
+        border-top: 1px solid @allLiBorder;
+        padding: 0 (24rem/@per);
+        background-color: @white;
+        box-sizing: border-box;
+    }
+}
+
+
+
+//底部按钮
+footer{
+    width: 100%;
+    padding: (50rem/@per) (25rem/@per);
+    box-sizing: border-box;
+    a{
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        height: (80rem/@per);
+        line-height:  (80rem/@per);
+        background-color: @headerBgColor;
+        color:@white;
+        border-radius: 3px;
+        font-size: (32rem/@per);
+    }
+}
+

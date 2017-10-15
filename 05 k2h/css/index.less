@@ -1,0 +1,94 @@
+//变量配置信息
+@import './setting.less';
+// 清除浏览器默认样式
+@import './reset.less';
+//兼容移动端不同浏览器样式
+@import './normalize.less';
+
+
+
+
+// 头部
+header{
+    width: 100%;
+    // (640/20)设计图等分后每一分的大小
+    //设计图中元素的宽 /  (640/20)这个大小为88px的元素占设计图的几份
+    //设备的宽度/20 设备等分后每份的大小(此时为rem)
+    //设计图中元素 占设备的份数应与元素占设计图的份数一致
+    //所以就可以反向求出该元素在设备中的实际大小 = 设计图中元素 占设备的份数 * 设备的宽度/20 设备等分后每份的大小(rem)
+    height:(88rem / @per);//less中若作除运算须将单位置前
+    line-height: (88rem / @per);
+    background-color: @headerBgColor;
+    
+    a{
+        font-size: (32rem / @per);
+        padding-left: (56rem / @per);
+        color:@white;
+        display: inline-block;
+        position: relative;
+        &::before{
+            content: '';
+            width: (20rem / @per);
+            height:(32rem / @per);
+            top: (28rem/@per);
+            left: (20rem/@per);
+            position: absolute;
+            background-image: url(../image/back.png);
+            background-repeat: no-repeat;
+            background-size: (20rem / @per) (32rem / @per);
+        }
+    }
+}
+
+
+// 内容
+main{
+    width: 100%;
+    padding:0 (24rem/@per);
+    box-sizing: border-box;
+    .all{
+        width: 100%;
+    }
+    .all-header{
+        height: (84rem/@per);
+        line-height: (84rem/@per);
+        font-size: (28rem/@per);
+        h2{
+            font-weight: normal;
+            float: left;
+            color: @black;
+        }
+        .quantity{
+            float: right;
+            color: @quantityColor;
+        }
+    }
+    .all-add{
+        width: 100%;
+        height: (224rem/@per);
+        background-color: @white;
+        border: 3px dashed @allBorderColor;
+        box-sizing: border-box;
+        background-image: url(../image/add.png);
+        background-repeat: no-repeat;
+        background-size: (104rem/@per) (104rem/@per);
+        background-position: center (36rem/@per);
+        text-align: center;
+        span{
+            display: block;
+            color: @allAddColor;
+            font-size: (26rem/@per);
+            margin-top: (156rem/@per);
+        }
+    }
+    // 底部
+    .footer{
+        margin-top: (120rem/@per);
+        font-size: (24rem/@per);
+        color:@footerColor;
+        line-height: (40rem/@per);
+        h3{
+            font-weight: normal
+        }
+    }
+}
