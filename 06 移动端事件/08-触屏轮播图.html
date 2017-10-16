@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>carousel</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .carousel {
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .carousel ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            /* 设为absolue不会占位 */
+            top: 0;
+        }
+        
+        .carousel li {
+            float: left;
+        }
+        
+        .carousel li img {
+            width: 100%;
+            vertical-align: middle
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <ul>
+            <li>
+                <a href="javascript:;"><img src="./image/0.png" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="./image/1.png" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="./image/2.png" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="./image/3.png" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="./image/4.png" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="./image/5.png" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="./image/6.png" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="./image/7.png" alt=""></a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        //1.获取元素
+        var carousel = document.querySelector('.carousel');
+        var ul = carousel.querySelector('ul');
+        //1.1获取第一个li和最后一个li 
+        var firstLi = ul.querySelector('li');
+        var lastLi = ul.querySelector('li:last-child');
+        var oLi;
+        //显示宽度
+        var carouselWidth = carousel.offsetWidth;
+        //索引
+        var index = 0;
+        //定时器
+        var timer;
+        var flag = false;
+
+        //2.完成页面布局
+        function init() {
+            //将第一个li和最后一个li拷贝一份插入ul
+            ul.appendChild(firstLi.cloneNode(true));
+            ul.insertBefore(lastLi.cloneNode(true), firstLi);
+
+            //设置li的宽为视口大小，同时设置ul的宽
+            setWidth();
+
+
+            //应该显示为0的第二张,向左移动一个单位
+            index--;
+            ul.style.left = index * carouselWidth + 'px';
+        }
+        //2.1设置li的宽为视口大小，同时设置ul的宽
+        function setWidth() {
+            oLi = ul.querySelectorAll('li');
+            for (var i = 0; i < oLi.length; i++) {
+                oLi[i].style.width = carouselWidth + 'px';
+
+            }
+            ul.style.width = carouselWidth * oLi.length + 'px';
+
+            //自动播放
+            autoPlay()
+        }
+
+        //3.自动播放
+        function autoPlay() {
+            timer = setInterval(function() {
+                index--;
+                ul.style.left = index * carouselWidth + 'px';
+                //因为每轮都会在之后清空缓动动画所以每次定时器都应加缓动
+                ul.style.transition = 'all 1s';
+            }, 1200)
+
+
+        }
+
+        //4.利用移动每一屏时ul的缓动效果监测index的变化
+        ul.addEventListener('webkitTransitionEnd', function() {
+
+            // 判断索引为0 的时候  让其索引为-8;
+            if (index == 0) {
+                index = -8;
+            }
+            // 判断索引为-9 的时候  让其索引为-1;
+
+
+            if (index == -9) {
+                index = -1;
+            }
+            //要瞬间移动过去所以需取消延时
+            ul.style.transition = '';
+            ul.style.left = index * carouselWidth + 'px';
+            flag = true;
+
+        })
+
+        //5.用手指控制,向左为index--，向右为index++
+        var startX, endX;
+        ul.addEventListener('touchstart', function(e) {
+            clearInterval(timer);
+
+            var touches = e.targetTouches[0];
+            startX = touches.clientX;
+        })
+        ul.addEventListener('touchend', function(e) {
+            autoPlay();
+
+
+            var touches = e.changedTouches[0];
+            endX = touches.clientY;
+            //判断方向
+
+
+
+            endX > startX ? index++ : index--;
+
+
+            ul.style.left = index * carouselWidth + 'px';
+            ul.style.transition = 'all 1s';
+
+        })
+
+        init();
+    </script>
+</body>
+
+</html>
