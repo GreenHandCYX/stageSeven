@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .par{
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            margin-bottom: 30px;
+            display: table
+        }
+        .child{
+           
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        
+        }
+
+
+        .par3{
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            margin-bottom: 30px;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        .child3{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            background-color: red;
+        }
+
+
+        .par1{
+            width: 400px;
+            height: 400px;
+            background-color: skyblue;
+            display: table;
+            margin-bottom: 30px;
+        }
+        .child1,.child2{
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        .child2 p{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="par">
+        <div class="child">
+            我是单行文字
+        </div>
+    </div>
+
+    <div class="par3">
+            <div class="child3">
+                我是单个块
+            </div>
+     </div>
+
+    <div class="par1">
+        <div class="child1">
+            <p> 我是多行文字</p>
+            <p> 我是多行文字</p>
+        </div>
+    </div>
+    <div class="par1">
+            <div class="child2">
+                <p> 我是多个块</p>
+                <p> 我是多个块</p>
+            </div>
+        </div>
+</body>
+
+<!-- 
+display:table;和display:table-cell实现居中
+单行文字或元素居中:
+父盒子{display:table}    此元素会作为块级表格来显示（类似 <table>），表格前后带有换行符
+子盒子(要居中的元素){display:table-cell;vertical-align:middle;display:inline-block}  此元素会作为一个表格单元格显示（类似 <td> 和 <th>,再采用垂直居中的方法得到需要的结果
+
+多行文字或元素居中
+ 父盒子{display:table} 
+子盒子(需要在要居中的元素外套的盒子){display:table-cell;vertical-align:middle;text-align: center;} 
+
+块元素居中
+父盒子{display:table-cell;vertical-align:middle;text-align: center;}
+子盒子{display:inline-block}
+-->
+</html>
