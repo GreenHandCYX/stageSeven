@@ -124,7 +124,7 @@
 
         //4.利用移动每一屏时ul的缓动效果监测index的变化
         ul.addEventListener('webkitTransitionEnd', function() {
-
+            flag = true;//在每次缓动之后判断一下索引的临界值
             // 判断索引为0 的时候  让其索引为-8;
             if (index == 0) {
                 index = -8;
@@ -138,7 +138,7 @@
             //要瞬间移动过去所以需取消延时
             ul.style.transition = '';
             ul.style.left = index * carouselWidth + 'px';
-            flag = true;
+        
 
         })
 
@@ -159,9 +159,11 @@
             //判断方向
 
 
-
-            endX > startX ? index++ : index--;
-
+            if(flag){
+                endX > startX ? index++ : index--;
+            }
+           
+            flag = false;
 
             ul.style.left = index * carouselWidth + 'px';
             ul.style.transition = 'all 1s';
