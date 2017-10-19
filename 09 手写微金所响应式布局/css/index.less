@@ -70,7 +70,7 @@ body {
     left:0;
     width: 100%;
     height: 57px;
-    display: none;
+   display: none;
     background-color: #ccc;
     border-bottom: 1px solid #ccc;
     z-index: 100;
@@ -623,6 +623,118 @@ body {
 }
 
 //响应式
-@media screen and (width:980px) {
+@media screen and (max-width:980px) {
+    //顶部
+    .topnav{
+        .container>div{
+            &:first-child{
+                display: none
+            }
+            &.service{
+                border: none
+            }
+        }
+    }
+    //导航
+    .nav{
+        .container{
+            width: 750px;
+        }
+    }
+    //专长
+    .expertise{
+        width: 750px;
+    }
+    //通知
+    .notify{
+        .container{
+            width: 750px;
+            li:last-child{
+                display: none;
+            }
+        }
+    }
+    //借贷
+    .loan{
+        .loan-wrap{
+            width: 750px;
+        }
+        .item{
+            width: 48%;
+        }
+    }
+    //新闻
+    .news{
+        padding-left: 20px;
+        padding-right:20px;
+       .title{
+           float: none;
+           width: 100%;
+           padding: @titlePadding;
+           margin-left: 0;
+           border-bottom: 1px solid #ccc;
+           position: relative;
+           font-weight: normal;
+       } 
+       .type{
+           float: none;
+           padding: 25px 0;
+          text-align: justify;
+           &:before{
+               display: none;
+           }
+           &:after{
+               content:'';
+               display:inline-block;
+               width: 100%;
+                overflow: hidden;
+           }
+           span{
+               display: inline-block;
+               margin-bottom: 0
+           }
+       }
+       .list{
+           float: none;
+           margin-left: 0
+       }
+    }
+}
+
+
+@media screen and (max-width:750px){
+    //固定导航条
+    .fixed-bar{
+      display: block
+    }
+    //需向下空出固定导航条的位置
+    .wjs-content{
+        margin-top: 57px;
+    }
+    .topnav,.nav,.expertise{
+        display: none
+    }
+    .notify {
+        .container{
+            width: 100%
+        }
+    }
+    .loan{
+        .loan-wrap{
+            width: 100%;
+            .item{
+                width: 100%;
+            }
+        }
+    }
+
+
+    //固定导航及侧边栏向右偏移的类
+    .pullright {
+        transform: translateX(0);
+      }
     
+      .fixed-pullright {
+        transform: translateX(240px);
+      }
 }

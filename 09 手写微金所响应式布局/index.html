@@ -62,7 +62,7 @@
               </dl>
         </div>
         <!--2.小屏时顶部固定导航 -->
-        <div class="fixed-bar fixed-pullright">
+        <div class="fixed-bar">
             <a href="javascript:;" class="menu">
               <img src="./images/menu.png" alt="">
             </a>
@@ -533,6 +533,12 @@
             continuous: true
         });
 
+
+        //点击显示侧边栏
+        $('.menu').click(function(){
+            $('.aside-bar').toggleClass('pullright');
+            $(".fixed-bar,.wjs-content").toggleClass('fixed-pullright');
+        })
     </script>
 </body>
 
