@@ -20,9 +20,7 @@ header .back i {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 0.26666667rem 0.46666667rem;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 header .back span {
   color: #fff;

@@ -65,9 +65,9 @@
 
 
         //解决方式:
-        //1.加<meta name="viewport" content="width=device-width, initial-scale=1">
+        //1.加<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
         //2.使用fastclick插件
-
+    
         FastClick.attach(document.body);
         $('.tap').tap(function() {
             $(this).hide();

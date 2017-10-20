@@ -63,7 +63,7 @@ header .jdm-searchBox {
     width: 20px;
     height: 30px;
     background-image: url(../images/jd-sprites.png);
-    /* 原图为而被图 */
+    /* 原图为二倍图 */
     background-size: 200px 200px;
     background-position: -60px -104px;
 }

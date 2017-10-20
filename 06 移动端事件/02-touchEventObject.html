@@ -39,7 +39,7 @@
 
         // 1. touches  屏幕上触点的个数的列表
         // 2. targetTouches  绑定事件的元素上触点的个数的列表
-        // 3. changedTouches 位置更改的触点的个数的列表
+        // 3. changedTouches 状态更改的触点的个数的列表
 
         // 1.当手指放到box上的时候 触发touchstart
         box.addEventListener('touchstart', function(e) {
@@ -53,7 +53,7 @@
             this.innerHTML = 'touches:' + e.touches.length + 'targetTouches:' + e.targetTouches.length + 'changedTouches:' + e.changedTouches.length;
         })
 
-        // 3.当手指离开box上的时候 会触发touchend事件 
+        // 3.当手指离开box上的时候 会触发touchend事件，离开时touches和targettouches都为0 
         box.addEventListener('touchend', function(e) {
             this.innerHTML = 'touches:' + e.touches.length + 'targetTouches:' + e.targetTouches.length + 'changedTouches:' + e.changedTouches.length;
         })

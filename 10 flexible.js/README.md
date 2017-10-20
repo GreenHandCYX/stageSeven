@@ -22,6 +22,18 @@
 #### 通知(notify)
 #### 借贷(loan)
       让inline-block元素两端对其的方法
+      父元素{
+        text-align:justify;
+      }
+      父元素:after{
+        content:'';
+        display:inline-block;
+        width:100%;
+        overflow:hidden;
+      }
+      子元素{
+        display:inline-block
+      }
 #### 新闻(news)
 #### 底部(footer)
 #### 响应式
