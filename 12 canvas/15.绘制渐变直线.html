@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas绘制正方形框</title>
+</head>
+<body>
+  <canvas></canvas>
+
+  <script>
+    // 1.获取画布
+    var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 300;
+        canvas.style.border = '1px solid #ff0000';
+    // 2.获取画笔
+    var context = canvas.getContext('2d');
+
+    context.lineWidth = 100;
+    for(var i=0;i<256;i++){
+        context.beginPath();
+        context.moveTo(10+i,100);
+        context.lineTo(100+i,100);
+        context.strokeStyle = 'rgb('+i+','+i+',255)';
+        context.stroke();
+    }
+ 
+
+
+
+      // function draw() {
+      //   var ctx = canvas.getContext('2d');
+      //   for (var i = 0; i < 6; i++) {
+      //     for (var j = 0; j < 6; j++) {
+      //       ctx.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ',' +
+      //         Math.floor(255 - 42.5 * j) + ',0)';
+      //       ctx.fillRect(j * 25, i * 25, 25, 25);
+      //     }
+      //   }
+      // }
+      // draw();
+      </script>
+</body>
+</html>

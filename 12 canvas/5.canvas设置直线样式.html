@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+    var canvas = document.querySelector('canvas');
+    canvas.width = 600;
+    canvas.height =300;
+    // 在canvas中不能通过设置css中的width和height来控制canvas的大小
+    // 因为canvas中的每一个坐标及宽高都代表一个css像素,通过css设置会失真
+    canvas.style.border = '1px solid #ccc';
+    var context = canvas.getContext('2d');
+        // context.moveTo(50,10);
+        // context.lineTo(150,110);
+
+        // context.lineWidth = 10;
+        // context.strokeStyle = 'red';
+
+
+        // //设置线的末端类型 butt默认 round圆角 square方块(加一个小方块)
+        // context.lineCap ='round';
+
+        // context.stroke();
+  
+
+
+        //设置线的拐点样式
+        context.moveTo(100,50);
+        context.lineTo(150,100);
+        context.lineTo(200,50);
+      
+  
+
+        context.moveTo(100,80);
+        context.lineTo(150,130);
+        context.lineTo(200,80);
+     
+
+
+        context.moveTo(100,110);
+        context.lineTo(150,160);
+        context.lineTo(200,110);
+       
+
+        
+        context.lineWidth =10;
+        //设置线的拐点的样式
+        // context.lineJoin = 'miter';//默认
+        context.lineJoin = 'round';//圆角
+        // context.lineJoin = 'bevel';//尖角变平角
+        //只需stroke一次就可以
+        context.stroke();
+
+    </script>
+</body>
+</html>

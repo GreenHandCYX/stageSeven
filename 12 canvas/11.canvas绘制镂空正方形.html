@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Canvas绘制前准备工作</title>
+</head>
+<body>
+  <img src="./image/feilinghuanraoyuanze.png" alt="">
+  <canvas>
+    您的浏览器版本不支持canvas,请升级!!
+  </canvas>
+
+  <script>
+    var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 300;
+        canvas.style.border = '1px solid #ff0000';
+    var context = canvas.getContext('2d');
+
+    //顺时针为+1
+    // 绘制大矩形 600 300  200 100    400 100
+    context.moveTo(100,50);
+    context.lineTo(500,50);
+    context.lineTo(500,250);
+    context.lineTo(100,250);
+    context.lineTo(100,50);
+    // 绘制小矩形
+
+    //顺时针为+1  总和为+1 + +1 + 0 = 2非零就填充
+
+    // context.moveTo(200,100);
+    // context.lineTo(400,100);
+    // context.lineTo(400,200);
+    // context.lineTo(200,200);
+    // context.lineTo(200,100);
+
+    //逆时针才为-1  总和为-1 + +1 + 0 = 0为零不填充
+    context.moveTo(200,100);
+    context.lineTo(200,200);
+    context.lineTo(400,200);
+    context.lineTo(400,100);
+    context.lineTo(200,100);
+
+
+    // context.stroke();
+    context.fill();
+  
+
+
+// fill的非零环绕原则(绘制路径是有方向的)
+
+// 如果需要判断某一个区域是否需要填充颜色. 就从该区域中随机的选取一个点。
+// 从这个点拉一条直线出来, 一定要拉到图形的外面. 此时以该点为圆心。
+// 看穿过拉出的直线的线段. 
+// 如果是顺时针方向就记为 +1,
+//  如果是逆时针方向，就记为 -1. 
+
+
+//注意：非零环绕原则只适用于一笔画完的图形
+  </script>
+</body>
+</html>

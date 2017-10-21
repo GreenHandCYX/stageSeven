@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+    var canvas = document.querySelector('canvas');
+    canvas.width = 600;
+    canvas.height =300;
+    // 在canvas中不能通过设置css中的width和height来控制canvas的大小
+    // 因为canvas中的每一个坐标及宽高都代表一个css像素,通过css设置会失真
+    canvas.style.border = '1px solid #ccc';
+    var context = canvas.getContext('2d');
+        // context.beginPath();
+        context.strokeStyle = 'red';
+        context.moveTo(10,110);
+        context.lineTo(110,110);
+        context.lineWidth = 2;
+        context.stroke();
+
+        // context.beginPath();
+        context.strokeStyle = 'yellow';
+        context.moveTo(10,150);
+        context.lineTo(110,150);
+        context.lineWidth = 2;
+        context.stroke();
+
+        // context.beginPath();
+        context.strokeStyle = 'blue';
+        context.moveTo(10,190);
+        context.lineTo(110,190);
+        context.lineWidth = 2;
+        context.stroke();
+  
+
+
+        //注:只有在strokestyle,lineWidth不同时即需要设置不同的样式时才需要开启beginPath
+         // canvas绘制图形是基于状态的, 通过(strokestyle,lineWidth) 一条线就是用的当前的样式
+
+      // bug: 有stroke()只有一个 和开启beginPath()的时候有问题
+
+      // 当线条设置不同的颜色  如果没有设置线宽要大于等于2 就会出现渲染的问题(会多次stroke) 既不是我们设置的也不是默认的 
+      //  第二种 就是统一最后使用一个stroke();  那么 如果进行颜色的设置 就会被后面的覆盖 
+
+
+      // 总结: 如果用一个stroke  再开启一个新路径的画 就只会画出一条线 这是不对的
+      //   应该的做法是 一个新路径  对应一个stroke
+
+      // 其实在canvas绘图的时候 canvas对象本身就已经开启了一个新路径
+    </script>
+</body>
+</html>

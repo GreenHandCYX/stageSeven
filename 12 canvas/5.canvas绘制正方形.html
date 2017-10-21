@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+    var canvas = document.querySelector('canvas');
+    canvas.width = 600;
+    canvas.height =300;
+    // 在canvas中不能通过设置css中的width和height来控制canvas的大小
+    // 因为canvas中的每一个坐标及宽高都代表一个css像素,通过css设置会失真
+    canvas.style.border = '1px solid #ccc';
+    var context = canvas.getContext('2d');
+        context.moveTo(10,10);
+        context.lineTo(110,10);
+        context.lineTo(110,110);
+        context.lineTo(10,110);
+        context.lineTo(10,10);
+        context.stroke();
+  
+    </script>
+</body>
+</html>
