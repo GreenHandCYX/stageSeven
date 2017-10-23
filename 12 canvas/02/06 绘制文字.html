@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制文字</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+    var canvas = document.querySelector('#canvas');;
+    canvas.width =600;
+    canvas.height = 400;
+    canvas.style.border = '1px solid red';
+    var context = canvas.getContext('2d');
+
+    context.moveTo(0,canvas.height/2);
+    context.lineTo(canvas.width,canvas.height/2);
+    context.moveTo(canvas.width/2,0);
+    context.lineTo(canvas.width/2,canvas.height);
+    context.stroke();
+    
+
+
+    //绘制文字
+    
+    //修改文字的大小及字体
+    context.font = '80px 楷体';//默认值为: 10px sans-serif
+
+ 
+    
+    //修改文字的水平对齐方式left,right,center
+    context.textAlign = 'center';//以文字左下角坐标为基准
+
+    //修改文字的垂直对齐方式
+    //context.textBaseline设置基线 bottom,top,middle,
+    context.textBaseline ='middle';
+   // alphabetic(默认。文本基线是普通的字母基线), ideographic(基于参考点的直线)
+
+    var text ='内容';
+    //获取文字的宽度context.measureText(文字内容).width
+    var width = context.measureText(text).width;
+    console.log(width);
+
+    //填充文字
+        // context.fillText('内容',文字左下角的x坐标,文字左下角的Y坐标)
+    context.fillText(text,canvas.width/2,canvas.height/2)
+
+
+    //描边文字
+    // context.strokeText(text,canvas.width/2,canvas.height/2)//描边有时候会加粗，这是字体大小的原因
+    </script>
+</body>
+</html>
