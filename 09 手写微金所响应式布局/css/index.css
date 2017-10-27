@@ -628,6 +628,7 @@ body {
 .wjs-content {
   width: 100%;
   margin: 0 auto;
+  transition: all 1s;
 }
 .topnav {
   width: 100%;
